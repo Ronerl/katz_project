@@ -5,7 +5,9 @@ port = 8820
 ip = socket.gethostbyname(socket.gethostname())
 my_socket = socket.socket()
 my_socket.connect((ip, port))
-
+print my_socket.recv(1024)
+filename = raw_input("Please enter a filename!")
+my_socket.send(filename)
 with open('my_music.wav','wb') as f:
   while True:
     l = my_socket.recv(1024)
